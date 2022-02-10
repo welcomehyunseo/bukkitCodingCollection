@@ -1,0 +1,4 @@
+name: WaterDemon
+version: '${project.version}'
+main: me.welcomehyunseo.waterdemon.WaterDemon
+api-version: 1.18
