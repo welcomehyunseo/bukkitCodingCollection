@@ -1,0 +1,7 @@
+name: FrozenZombie
+version: '${project.version}'
+main: me.welcomehyunseo.frozenzombie.Main
+api-version: 1.18
+commands:
+  fz:
+    description: Spawn frozen zombie

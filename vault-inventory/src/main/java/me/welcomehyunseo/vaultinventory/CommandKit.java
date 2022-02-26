@@ -23,25 +23,13 @@ public class CommandKit implements CommandExecutor {
             //Creating inventories. 1: Name of player inventory is linked to 2: How many slots in the inventory 3: Title of inventory
             Inventory vault = Bukkit.createInventory(player, 9, "Your Vault");
 
-            ItemStack item1 = new ItemStack(Material.BEEF, 1);
-            vault.setItem(3, item1);
-            vault.addItem(item1);
-            vault.clear();
 
-            ItemStack item2 = new ItemStack(Material.ACACIA_FENCE);
-
-            item2.addUnsafeEnchantment(Enchantment.DURABILITY, 100);
-            ItemMeta meta = item2.getItemMeta();
-            meta.setUnbreakable(true);
-            meta.setDisplayName(ChatColor.AQUA + "Item name");
-            ArrayList<String> lore = new ArrayList<>();
-            lore.add(ChatColor.GOLD + "some lore");
-            lore.add(ChatColor.DARK_PURPLE + "some more lore heehehehe");
-            meta.setLore(lore);
-            item2.setItemMeta(meta);
+            ItemStack fristItem = firstItem();
+            ItemStack item2 = firstItem();
+            ItemStack item3 = firstItem();
 
 
-            ItemStack[] items = {item1, item2};
+            ItemStack[] items = { fristItem, item2, item3};
             vault.setContents(items);
 
             ItemStack[] items_from_inventory = vault.getContents();
@@ -51,4 +39,20 @@ public class CommandKit implements CommandExecutor {
 
         return true;
     }
+
+    public ItemStack firstItem() {
+        ItemStack item = new ItemStack(Material.ACACIA_FENCE);
+        item.addUnsafeEnchantment(Enchantment.DURABILITY, 100);
+        ItemMeta meta = item.getItemMeta();
+        meta.setUnbreakable(true);
+        meta.setDisplayName(ChatColor.AQUA + "Item name");
+        ArrayList<String> lore = new ArrayList<>();
+        lore.add(ChatColor.GOLD + "some lore");
+        lore.add(ChatColor.DARK_PURPLE + "some more lore heehehehe");
+        meta.addEnchant(Enchantment.DIG_SPEED, 10, true);
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+        return item;
+    }
+
 }

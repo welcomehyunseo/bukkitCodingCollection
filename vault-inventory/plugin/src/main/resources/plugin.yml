@@ -1,0 +1,7 @@
+name: vault-inventory
+version: '${project.version}'
+main: me.welcomehyunseo.vaultinventory.VaultInventory
+api-version: 1.18
+commands:
+  vault:
+    description: It is vault inventory.
